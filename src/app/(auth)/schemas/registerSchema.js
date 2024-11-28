@@ -1,5 +1,4 @@
 "use server";
-import { platform } from "os";
 import { z } from "zod";
 
 export const registerSchema = z.object({
