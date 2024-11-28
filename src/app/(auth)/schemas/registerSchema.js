@@ -1,3 +1,4 @@
+"use server";
 import { platform } from "os";
 import { z } from "zod";
 

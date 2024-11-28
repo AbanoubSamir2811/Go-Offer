@@ -1,3 +1,4 @@
+"use server";
 import axios from "axios";
 import { loginSchema } from "../schemas/loginSchema"; // Adjust path as needed
 import { date } from "zod";

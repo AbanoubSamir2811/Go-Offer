@@ -1,3 +1,4 @@
+"use client";
 import BrandCard from '../../../shared/components/BrandCard';
 import React from 'react'
 
