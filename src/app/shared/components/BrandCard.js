@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
 
@@ -10,6 +11,7 @@ function BrandCard({store}) {
             src={store.logo}
             alt={store.name}
         />
+        <div className='hidden'></div>
         <p className='text-[24px] font-[600] text-[#543883]'>{store.name}</p>
     </div>
   )
