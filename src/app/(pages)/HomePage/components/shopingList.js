@@ -84,7 +84,7 @@ const ShopingList = ({data}) => {
             className="w-[293px] flex-shrink-0 mt-16 flex justify-center" // Ensure slides don't shrink
           >
             <div className="h-[172px] w-[293px] bg-white relative flex items-end justify-center pb-3 shadow-md shadow-[#00000014] rounded-[12px]">
-              <img
+              <Image
                 className="absolute top-[-50px] w-auto h-[163]"
                 src={slide.image}
                 alt={slide.name}

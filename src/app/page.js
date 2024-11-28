@@ -34,7 +34,7 @@ export default function Home() {
     fetchData();
     console.log(data)
 
-  }, []);
+  }, );
   return (
     <div className='flex flex-col items-center mt-1 pt-5'>
       {data ? (
