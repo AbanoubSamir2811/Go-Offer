@@ -44,9 +44,9 @@ export default function Home() {
         <CopounsList data={data[1].data}></CopounsList>
         <Brands  data={data[0].data}></Brands>
         <About></About>
-        <AllCopouns></AllCopouns>
-        <CustomOffers></CustomOffers>
-        <NewOffers></NewOffers>
+        {/* <AllCopouns></AllCopouns> */}
+        {/* <CustomOffers></CustomOffers> */}
+        {/* <NewOffers></NewOffers> */}
         <Evaluation></Evaluation>
         <Blogs></Blogs>
         <Image src="/Group 340222.png" alt='Group 340222.png' width={1265} height={475}/>

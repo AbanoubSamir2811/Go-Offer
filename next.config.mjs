@@ -6,6 +6,10 @@ const bundleAnalyzer = withBundleAnalyzer({
 
 const nextConfig = bundleAnalyzer({
   // باقي إعدادات Next.js
+  reactStrictMode: true,
+  images: {
+    domains: ['dashboard.gooffer.net'], // Add your image hostname here
+  },
 });
 
 export default nextConfig;
