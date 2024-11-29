@@ -104,7 +104,7 @@ function Blogs() {
             key={slide.id}
             className="w-fit h-full flex-shrink-0 flex flex-col mt-8 gap-3 bg-white rounded-[16px] p-[12px]" // Ensure slides don't shrink
           >
-           <Image className="w-[392px] h-[240px] mr-4" src={slide.img} alt={slide.title} width={392} height={240} />
+           <Image loading="lazy" className="w-[392px] h-[240px] mr-4" src={slide.img} alt={slide.title} width={392} height={240} />
            <p className="text-[#FFA360] text-[14px] font-[600] my-2">محمد مو 20 أبريل 2024</p>
            <p className="text-[#101828] text-[24px] font-700"> عنوان المدونة هنا </p>
            <p className="text-[16px] font-[400]">في عالم العمليات التجارية الحديثة، يعد نظام نقاط البيع (POS) أكثر من مجرد أداة لمعالجة المعاملات. ,إنها تمثل منصة ديناميكية تتمتع بالقدرة على إحداث ثورة في طريقة عمل الشركات والتفاعل مع العملاء ودفع النمو. ,دعونا نتعمق في </p>

@@ -11,7 +11,7 @@ function Footer() {
   }, [pathname]);
   return (
     <div className={pathname === '/login' || pathname === '/register' ? 'hidden' : 'w-[90vw] justify-self-center flex flex-col items-center border-t-[#A33670] border-t-[3px] border-solid  mt-24 p-12'}>
-        <Image  src='/logo22.png' alt='Screenshot_2023-122-21_101600-removebg-preview 5.png' width={118} height={91}/>
+        <Image loading="lazy"  src='/logo22.png' alt='Screenshot_2023-122-21_101600-removebg-preview 5.png' width={118} height={91}/>
 
         <div className='flex justify-between w-full my-7 pb-7 border-b-[3px] boreder-[#CED1E5] border-solid'>
             <div>
@@ -157,8 +157,8 @@ function Footer() {
                         </defs>
                     </svg>
                 </div>
-                <Image className='my-4' src="/app (1) 1.png" alt='app (1) 1.png' width={142} height={44}/>
-                <Image src="/google (1) 1.png" alt='app (1) 1.png' width={142} height={44}/>
+                <Image loading="lazy" className='my-4' src="/app (1) 1.png" alt='app (1) 1.png' width={142} height={44}/>
+                <Image loading="lazy" src="/google (1) 1.png" alt='app (1) 1.png' width={142} height={44}/>
             </div>
         </div>
 

@@ -49,10 +49,10 @@ export default function Home() {
         {/* <NewOffers></NewOffers> */}
         <Evaluation></Evaluation>
         <Blogs></Blogs>
-        <Image src="/Group 340222.png" alt='Group 340222.png' width={1265} height={475}/>
+        <Image loading="lazy" src="/Group 340222.png" alt='Group 340222.png' width={1265} height={475}/>
         </> 
       ) : (
-        <Image className="animate-ping my-5" src='/logo.png' alt='logo.png' width={100} height={100}/>
+        <Image loading="lazy" className="animate-ping my-5" src='/logo.png' alt='logo.png' width={100} height={100}/>
       )}
     </div>
   );

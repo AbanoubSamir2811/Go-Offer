@@ -5,7 +5,7 @@ function CopounsCard({slide}) {
   return (
     <div className="flex flex-col justify-center pt-4 p-[15px] bg-white w-[401px] h-[244px] shadow-md shadow-[#00000014] rounded-[12px]">
         <div className="flex border-b-[1px] border-[#C6CDDC] border-solid pb-3">
-        <Image className="w-[129px] h-[144px] rounded-[8px]" width={129} height={144} src={slide.brand_logo} alt={slide.brand_name} />
+        <Image loading="lazy" className="w-[129px] h-[144px] rounded-[8px]" width={129} height={144} src={slide.brand_logo} alt={slide.brand_name} />
         <div className="w-full mr-2">
             <div className="flex justify-between">
             <p className="text-[#543883] text-[24px] font-[600]">{slide.brand_name}</p>

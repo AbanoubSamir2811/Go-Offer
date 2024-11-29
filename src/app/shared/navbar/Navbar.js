@@ -52,7 +52,7 @@ function Navbar() {
                 </svg>
             </div>
             <div className='flex items-center lg:gap-16 md:gap-8 text-[16px] font-[400] relative'>
-                <Image src='/logo.png' alt='logo' width={52} height={40} />
+                <Image loading="lazy" src='/logo.png' alt='logo' width={52} height={40} />
                 <ul className='md:flex hidden items-center lg:gap-[4.3vw] md:gap-8' id='navbarUl'>
                     <li onClick={()=> router.push('/')}
                         className={`cursor-pointer text-nowrap ${navNum === 1 ? 'text-[#543883] font-[600]' : ''}`}
