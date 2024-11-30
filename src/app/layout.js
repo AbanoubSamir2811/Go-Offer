@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./shared/navbar/Navbar";
 import Footer from "./shared/footer/footer";
 import Head from "next/head";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,8 +25,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="rtl">
       <Head>
-        <link rel="preload" href="/path/to/font.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-        <link rel="preload" href="/styles/main.css" as="style" />
+        <Link rel="preload" href="https://fonts.googleapis.com" as="font" />
+        <Link rel="preload" href="https://fonts.gstatic.com" crossorigin  as="font"/>
+        <Link as="font" crossOrigin="anonymous" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet" />
+        <Link rel="preload" href="/styles/main.css" as="style" />
       </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
