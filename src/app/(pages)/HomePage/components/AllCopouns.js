@@ -13,7 +13,7 @@
 //       ];
 //   return (
 //     <div>
-//         <div className="flex justify-between h-[34px] w-[90vw] items-center">
+//         <div className="flex justify-between h-[34px] w-[90vw] min-w-[400px] items-center">
 //             <p className="font-[800] text-[32px] text-[#262254]">   كل الكوبونات </p>
 
 //             <div className="custom-navigation flex mb-2 h-[34px] items-center text-[#FFA360] text-[20px] font-[700] underline-offset-1">

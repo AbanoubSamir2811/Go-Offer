@@ -16,7 +16,7 @@ function Brands({data}) {
     <div className='w-[100vw] flex flex-col items-center py-8' id='brands'>
         <p className='font-[800] text-[32px] text-[#262254]'>تصفح حسب العلامات التجارية</p>
 
-        <div className="flex gap-4 ms-0 mt-4 ps-0 max-w-[90vw] overflow-x-scroll overflow-hidden" id='scroller'>
+        <div className="flex gap-4 ms-0 mt-4 ps-0 max-w-[90vw] min-w-[400px] overflow-x-scroll overflow-hidden" id='scroller'>
         {memoizedData}
       </div>
 

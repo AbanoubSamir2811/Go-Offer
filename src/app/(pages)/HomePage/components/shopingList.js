@@ -40,7 +40,7 @@ const ShopingList = ({data}) => {
 
   return (
     <div className="w-full h-[290px] flex flex-col items-center justify-center mt-24 mx-3">
-      <div className="flex justify-between h-[34px] w-[90vw] items-center">
+      <div className="flex justify-between h-[34px] w-[90vw] min-w-[400px] items-center">
         <p className="font-[800] text-[32px] text-[#262254]">تسوق حسب الفئات</p>
         {/* Custom Navigation */}
         <div className="custom-navigation flex mb-2 h-[34px] items-center">
@@ -90,7 +90,7 @@ const ShopingList = ({data}) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
         }}
-        className="flex w-[90vw] h-[290px] justify-center"
+        className="flex w-[90vw] min-w-[400px] h-[290px] justify-center"
       >
         {memoizedData}
       </Swiper>

@@ -21,7 +21,7 @@ function About() {
         'منصة جو اوفر متكاملة للتسويق الالكتروني',
     ]
   return (
-    <div className='py-24  w-[90vw] flex flex-col items-center'>
+    <div className='py-24  w-[90vw] min-w-[400px] flex flex-col items-center'>
         <Image loading="lazy" className='w-auto h-auto' src='/Screenshot_2023-122-21_101600-removebg-preview 5.png' alt='Screenshot_2023-122-21_101600-removebg-preview 5.png' width={31} height={34}/>
         <p className='font-[800] text-[32px] text-[#262254]'>ما هى منصة جو اوفر</p>
 

@@ -63,7 +63,7 @@ export default function Home() {
         {/* <CustomOffers /> */}
         <Evaluation />
         <Blogs />
-        {/* <Image loading="lazy" src="/Group 340222.png" alt='Group 340222.png' width={1265} height={475}/> */}
+        <Image priority={true} layout="intrinsic" src="/Group 340222.png" alt='Group 340222.png' width={1265} height={475}/>
       </Suspense>
     </div>
   );
