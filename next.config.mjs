@@ -1,26 +1,28 @@
+"use client";
+
 const nextConfig = {
-  // turbo: true, // Enable Turbopack
-  // reactStrictMode: true,
-  // swcMinify: true,
+  experimental: {
+    turbo: {
+      enabled: true, // Enable Turbopack
+    },
+  },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'dashboard.gooffer.net',
-        pathname: '/storage/**', // Allow all paths under /storage/
+        pathname: '/storage/**',
       },
     ],
-    formats: ['image/avif', 'image/webp'], // Optional: Enable modern formats for better performance
+    formats: ['image/avif', 'image/webp'],
   },
 
-  // webpack(config, { isServer }) {
-  //   if (!isServer) {
-  //     // Reduce client-side bundle size by excluding unnecessary packages
-  //     config.resolve.alias['@sentry/node'] = '@sentry/browser';
-  //   }
-
-  //   return config;
-  // },
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      config.resolve.alias['@sentry/node'] = '@sentry/browser';
+    }
+    return config;
+  },
 };
 
 export default nextConfig;
