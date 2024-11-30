@@ -31,7 +31,7 @@ function Footer() {
   if (pathname === '/login' || pathname === '/register') return null;
 
   return (
-    <div className="w-[90vw] justify-self-center flex flex-col items-center border-t-[#A33670] border-t-[3px] border-solid mt-24 p-12">
+    <div className="w-[90vw] min-w-[500px] justify-self-center flex flex-col items-center border-t-[#A33670] border-t-[3px] border-solid mt-24 p-12">
       <Image
         src="/logo22.png"
         alt="Logo"

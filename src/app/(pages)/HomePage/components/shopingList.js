@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
@@ -13,9 +13,30 @@ const ShopingList = ({data}) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  if (!Array.isArray(data)) {
-    return <div>Error: Items should be an array</div>;
-  }
+  const memoizedData = useMemo(() => {
+    if (data === undefined) {
+      return <div>Loading...</div>;
+    }else if(data){  
+      return data.map((slide) => (
+        <SwiperSlide
+          key={slide.id}
+          className="w-[293px] flex-shrink-0 mt-16 flex justify-center" // Ensure slides don't shrink
+        >
+          <div className="h-[172px] w-[293px] bg-white relative flex items-end justify-center pb-3 shadow-md shadow-[#00000014] rounded-[12px]">
+            <Image
+              className="absolute top-[-50px] w-auto max-h-[163px] min-h-[100px]"
+              src={slide.image}
+              alt={slide.name}
+              width={293}
+              height={163}
+              layout="intrinsic"
+            />
+            <p className="text-[20px] font-[600] text-[#543883]">{slide.name}</p>
+          </div>
+        </SwiperSlide>
+      ))
+    }
+  }, [data]);
 
   return (
     <div className="w-full h-[290px] flex flex-col items-center justify-center mt-24 mx-3">
@@ -71,24 +92,7 @@ const ShopingList = ({data}) => {
         }}
         className="flex w-[90vw] h-[290px] justify-center"
       >
-        {data.map((slide) => (
-          <SwiperSlide
-            key={slide.id}
-            className="w-[293px] flex-shrink-0 mt-16 flex justify-center" // Ensure slides don't shrink
-          >
-            <div className="h-[172px] w-[293px] bg-white relative flex items-end justify-center pb-3 shadow-md shadow-[#00000014] rounded-[12px]">
-              <Image
-                className="absolute top-[-50px] w-auto h-[163px]"
-                src={slide.image}
-                alt={slide.name}
-                width={293}
-                height={163}
-                layout="intrinsic"
-              />
-              <p className="text-[20px] font-[600] text-[#543883]">{slide.name}</p>
-            </div>
-          </SwiperSlide>
-        ))}
+        {memoizedData}
       </Swiper>
     </div>
   );

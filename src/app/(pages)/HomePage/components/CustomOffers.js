@@ -11,16 +11,6 @@ function CustomOffers() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
 
-    const slides = [
-        { id: 1, title: "اكــســتـرا", img: "/Rectangle 4265.png" },
-        { id: 2, title: "العـربية للـعــود ", img: "/Rectangle 4266.png" },
-        { id: 3, title: "الصالة الاقتصادية", img: "/Rectangle 4267.png" },
-        { id: 4, title: "الملابس", img: "/mens_imperial_fern_saudi_thobe_jubba_for_men_thawb_dishdasha_caftan3_e3064586-8be5-410e-991e-1d91ec2249e9 2.png" },
-        { id: 5, title: "اكــســتـرا", img: "/Rectangle 4265.png" },
-        { id: 6, title: " العـربية للـعــود", img: "/Rectangle 4266.png" },
-        { id: 7, title: "الصالة الاقتصادية", img: "/Rectangle 4267.png" },
-        { id: 8, title: "الملابس", img: "/mens_imperial_fern_saudi_thobe_jubba_for_men_thawb_dishdasha_caftan3_e3064586-8be5-410e-991e-1d91ec2249e9 2.png" },
-    ];
   return (
     <div id='customOffers' className='w-full mt-24 h-[573px] p-10 flex flex-col items-center'>
         <div className="flex justify-self-strat w-full">

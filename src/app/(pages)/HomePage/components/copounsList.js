@@ -25,8 +25,6 @@ const CopounsList = ({ data }) => {
     }
   }, [data]);
 
-  
-
   return (
     <div className="w-full h-[350px] flex flex-col items-center justify-center my-24 mx-3">
       <div className="flex justify-between h-[34px] w-[90vw] items-center">

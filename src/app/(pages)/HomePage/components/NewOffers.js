@@ -13,17 +13,6 @@ const NewOffers = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const slides = [
-    { id: 1, title: "اكــســتـرا", img: "/Rectangle 4265.png" },
-    { id: 2, title: "العـربية للـعــود ", img: "/Rectangle 4266.png" },
-    { id: 3, title: "الصالة الاقتصادية", img: "/Rectangle 4267.png" },
-    { id: 4, title: "الملابس", img: "/mens_imperial_fern_saudi_thobe_jubba_for_men_thawb_dishdasha_caftan3_e3064586-8be5-410e-991e-1d91ec2249e9 2.png" },
-    { id: 5, title: "اكــســتـرا", img: "/Rectangle 4265.png" },
-    { id: 6, title: " العـربية للـعــود", img: "/Rectangle 4266.png" },
-    { id: 7, title: "الصالة الاقتصادية", img: "/Rectangle 4267.png" },
-    { id: 8, title: "الملابس", img: "/mens_imperial_fern_saudi_thobe_jubba_for_men_thawb_dishdasha_caftan3_e3064586-8be5-410e-991e-1d91ec2249e9 2.png" },
-  ];
-
   return (
     <div className="w-full h-[350px] flex flex-col items-center justify-center my-24 mx-3">
       <div className="flex justify-between h-[34px] w-[90vw] items-center">
