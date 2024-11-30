@@ -76,7 +76,7 @@ function Navbar() {
   }, [pathname]);
 
     return (
-        <div className={pathname === '/login' || pathname === '/register' ? 'hidden' :'w-[100vw] min-w-[400px] min-w-[500px] h-[74px] text-[#61707F] flex px-[88px] bg-[#FFFFFF] shadow-[#0000000A] shadow-md items-center justify-between z-10'}>
+        <div className={pathname === '/login' || pathname === '/register' ? 'hidden' :'w-[100vw] min-w-[500px] h-[74px] text-[#61707F] flex px-[88px] bg-[#FFFFFF] shadow-[#0000000A] shadow-md items-center justify-between z-10'}>
             <div className='hidden cursor-pointer' id='navbarButton'>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_5158_41050)">

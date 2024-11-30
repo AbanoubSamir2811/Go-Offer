@@ -63,7 +63,15 @@ export default function Home() {
         {/* <CustomOffers /> */}
         <Evaluation />
         <Blogs />
-        <Image priority={true} layout="intrinsic" src="/Group 340222.png" alt='Group 340222.png' className="w-[90vw] min-w-[400px] h-auto" width={1265} height={475}/>
+        <div className="relative w-[90vw] min-w-[400px] h-auto">
+          <Image 
+            priority={true} 
+            src="/Group 340222.png" 
+            alt="Group 340222.png" 
+            fill 
+            className="object-contain" 
+          />
+        </div>
       </Suspense>
     </div>
   );
