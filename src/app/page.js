@@ -15,26 +15,23 @@ import CopounsList from "./(pages)/HomePage/components/copounsList";
 export default function Home() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-
+  
+  async function fetchData() {
+    try {
+      const response = await axios.get('https://dashboard.gooffer.net/api/home', {
+        headers: {
+          Platform: 'website',
+          // lang : 'ar'
+      }});
+      setData(response.data.data);
+      console.log(response.data.data)
+    } catch (error) {
+      setError(error.message);
+    }
+  };
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get('https://dashboard.gooffer.net/api/home', {
-          headers: {
-            Platform: 'website',
-            // lang : 'ar'
-        }});
-        setData(response.data.data);
-        console.log(response.data.data)
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-
     fetchData();
-    console.log(data)
-
-  }, );
+  }, []);
   return (
     <div className='flex flex-col items-center mt-1 pt-5'>
       {data ? (

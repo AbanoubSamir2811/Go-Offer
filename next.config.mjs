@@ -1,7 +1,7 @@
 const nextConfig = {
-  turbo: true, // Enable Turbopack
-  reactStrictMode: true,
-  swcMinify: true,
+  // turbo: true, // Enable Turbopack
+  // reactStrictMode: true,
+  // swcMinify: true,
   images: {
     remotePatterns: [
       {
@@ -13,14 +13,14 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'], // Optional: Enable modern formats for better performance
   },
 
-  webpack(config, { isServer }) {
-    if (!isServer) {
-      // Reduce client-side bundle size by excluding unnecessary packages
-      config.resolve.alias['@sentry/node'] = '@sentry/browser';
-    }
+  // webpack(config, { isServer }) {
+  //   if (!isServer) {
+  //     // Reduce client-side bundle size by excluding unnecessary packages
+  //     config.resolve.alias['@sentry/node'] = '@sentry/browser';
+  //   }
 
-    return config;
-  },
+  //   return config;
+  // },
 };
 
 export default nextConfig;
