@@ -66,15 +66,6 @@ export default function Home() {
         <NewOffers data={memoizedData.copounsListData}/>
         <Evaluation />
         <Blogs />
-        <div className="relative w-[90vw] min-w-[400px] h-auto">
-          <Image 
-            priority={true} 
-            src="/Group 340222.png" 
-            alt="Group 340222.png" 
-            fill 
-            className="object-contain" 
-          />
-        </div>
       </Suspense>
     </div>
   );
