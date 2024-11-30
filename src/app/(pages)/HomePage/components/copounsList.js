@@ -11,9 +11,8 @@ import "swiper/css/mousewheel";
 import CopounsCard from "../../../shared/components/copounsCard";
 
 const CopounsList = ({ data }) => {
-  if (!Array.isArray(data)) {
-    return <div>Error: Items should be an array</div>;
-  }
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
   const memoizedData = useMemo(() => {
     return data.map((slide) => (
       <SwiperSlide key={slide.id} className="w-fit h-full flex-shrink-0 mt-8 gap-3">
@@ -21,8 +20,9 @@ const CopounsList = ({ data }) => {
       </SwiperSlide>
     ));
   }, [data]);
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  if (!Array.isArray(data)) {
+    return <div>Error: Items should be an array</div>;
+  }
 
   return (
     <div className="w-full h-[350px] flex flex-col items-center justify-center my-24 mx-3">
