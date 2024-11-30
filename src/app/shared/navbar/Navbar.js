@@ -2,44 +2,85 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation'; // Import usePathname
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 function Navbar() {
     const [navNum, setNavNum] = useState(1);
-    const pathname = usePathname(); // Get the current pathname
-    const router = useRouter();
-    const [loginButton, setLoginButton] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const [loginButton, setLoginButton] = useState(false);
 
-    useEffect(() => {
-        if(localStorage.getItem('token')){
-            setLoginButton(true);
-        }
-        console.log(pathname)
-        // Detect changes to the pathname
-        if (pathname === '/') {
-            setNavNum(1);
-        } else if (pathname === '/categories') {
-            setNavNum(2);
-        } else if (pathname === '/brands') {
-            setNavNum(3);
-        } else if (pathname === '/coupons') {
-            setNavNum(4);
-        } else if (pathname === '/deals') {
-            setNavNum(5);
-        } else if (pathname === '/mobile-app') {
-            setNavNum(6);
-        } else if (pathname === '/contact') {
-            setNavNum(7);
-        } else {
-            setNavNum(0);
-        }
-    }, [pathname]); // Run the effect whenever pathname changes
+  const navItems = useMemo(() => {
+    return [
+      {
+        label: 'الرئيسية',
+        href: '/',
+        active: navNum === 1,
+      },
+      {
+        label: 'الفئات',
+        href: '/categories',
+        active: navNum === 2,
+      },
+      {
+        label: 'العلامات التجارية',
+        href: '/brands',
+        active: navNum === 3,
+      },
+      {
+        label: 'الكوبونات',
+        href: '/coupons',
+        active: navNum === 4,
+      },
+      {
+        label: 'الصفقات',
+        href: '/deals',
+        active: navNum === 5,
+      },
+      {
+        label: 'التطبيق',
+        href: '/mobile-app',
+        active: navNum === 6,
+      },
+      {
+        label: 'اتصل بنا',
+        href: '/contact',
+        active: navNum === 7,
+      },
+    ];
+  }, [navNum]);
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setLoginButton(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (pathname === '/') {
+      setNavNum(1);
+    } else if (pathname === '/categories') {
+      setNavNum(2);
+    } else if (pathname === '/brands') {
+      setNavNum(3);
+    } else if (pathname === '/coupons') {
+      setNavNum(4);
+    } else if (pathname === '/deals') {
+      setNavNum(5);
+    } else if (pathname === '/mobile-app') {
+      setNavNum(6);
+    } else if (pathname === '/contact') {
+      setNavNum(7);
+    } else {
+      setNavNum(0);
+    }
+  }, [pathname]);
 
     return (
         <div className={pathname === '/login' || pathname === '/register' ? 'hidden' :'w-[100vw] h-[74px] text-[#61707F] flex px-[88px] bg-[#FFFFFF] shadow-[#0000000A] shadow-md items-center justify-between z-10'}>
             <div className='hidden cursor-pointer' id='navbarButton'>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_5158_41050)">
+                    <g clipPath="url(#clip0_5158_41050)">
                     <path d="M5.83333 0H3.33333C2.44928 0 1.60143 0.35119 0.976311 0.976311C0.35119 1.60143 0 2.44928 0 3.33333L0 5.83333C0 6.71739 0.35119 7.56524 0.976311 8.19036C1.60143 8.81548 2.44928 9.16667 3.33333 9.16667H5.83333C6.71739 9.16667 7.56524 8.81548 8.19036 8.19036C8.81548 7.56524 9.16667 6.71739 9.16667 5.83333V3.33333C9.16667 2.44928 8.81548 1.60143 8.19036 0.976311C7.56524 0.35119 6.71739 0 5.83333 0ZM7.5 5.83333C7.5 6.27536 7.32441 6.69928 7.01184 7.01184C6.69928 7.32441 6.27536 7.5 5.83333 7.5H3.33333C2.89131 7.5 2.46738 7.32441 2.15482 7.01184C1.84226 6.69928 1.66667 6.27536 1.66667 5.83333V3.33333C1.66667 2.89131 1.84226 2.46738 2.15482 2.15482C2.46738 1.84226 2.89131 1.66667 3.33333 1.66667H5.83333C6.27536 1.66667 6.69928 1.84226 7.01184 2.15482C7.32441 2.46738 7.5 2.89131 7.5 3.33333V5.83333Z" fill="#543883"/>
                     <path d="M16.6654 0H14.1654C13.2813 0 12.4335 0.35119 11.8083 0.976311C11.1832 1.60143 10.832 2.44928 10.832 3.33333V5.83333C10.832 6.71739 11.1832 7.56524 11.8083 8.19036C12.4335 8.81548 13.2813 9.16667 14.1654 9.16667H16.6654C17.5494 9.16667 18.3973 8.81548 19.0224 8.19036C19.6475 7.56524 19.9987 6.71739 19.9987 5.83333V3.33333C19.9987 2.44928 19.6475 1.60143 19.0224 0.976311C18.3973 0.35119 17.5494 0 16.6654 0ZM18.332 5.83333C18.332 6.27536 18.1564 6.69928 17.8439 7.01184C17.5313 7.32441 17.1074 7.5 16.6654 7.5H14.1654C13.7233 7.5 13.2994 7.32441 12.9869 7.01184C12.6743 6.69928 12.4987 6.27536 12.4987 5.83333V3.33333C12.4987 2.89131 12.6743 2.46738 12.9869 2.15482C13.2994 1.84226 13.7233 1.66667 14.1654 1.66667H16.6654C17.1074 1.66667 17.5313 1.84226 17.8439 2.15482C18.1564 2.46738 18.332 2.89131 18.332 3.33333V5.83333Z" fill="#FFA360"/>
                     <path d="M5.83333 10.832H3.33333C2.44928 10.832 1.60143 11.1832 0.976311 11.8083C0.35119 12.4335 0 13.2813 0 14.1654L0 16.6654C0 17.5494 0.35119 18.3973 0.976311 19.0224C1.60143 19.6475 2.44928 19.9987 3.33333 19.9987H5.83333C6.71739 19.9987 7.56524 19.6475 8.19036 19.0224C8.81548 18.3973 9.16667 17.5494 9.16667 16.6654V14.1654C9.16667 13.2813 8.81548 12.4335 8.19036 11.8083C7.56524 11.1832 6.71739 10.832 5.83333 10.832ZM7.5 16.6654C7.5 17.1074 7.32441 17.5313 7.01184 17.8439C6.69928 18.1564 6.27536 18.332 5.83333 18.332H3.33333C2.89131 18.332 2.46738 18.1564 2.15482 17.8439C1.84226 17.5313 1.66667 17.1074 1.66667 16.6654V14.1654C1.66667 13.7233 1.84226 13.2994 2.15482 12.9869C2.46738 12.6743 2.89131 12.4987 3.33333 12.4987H5.83333C6.27536 12.4987 6.69928 12.6743 7.01184 12.9869C7.32441 13.2994 7.5 13.7233 7.5 14.1654V16.6654Z" fill="#543883"/>
@@ -52,65 +93,22 @@ function Navbar() {
                     </defs>
                 </svg>
             </div>
-            <div className='flex items-center lg:gap-16 md:gap-8 text-[16px] font-[400] relative'>
+            <div className='flex items-center lg:gap-16 md:gap-8 text-[16px] font-[400] '>
                 <Image src='/logo.png' alt='logo' width={52} height={40} />
                 <ul className='md:flex hidden items-center lg:gap-[4.3vw] md:gap-8' id='navbarUl'>
-                    <li onClick={()=> router.push('/')}
-                        className={`cursor-pointer text-nowrap ${navNum === 1 ? 'text-[#543883] font-[600]' : ''}`}
-                    >
-                        الرئيسية
-                    </li>
-                    <li onClick={()=> router.push('/categories')}
-                        className={`cursor-pointer text-nowrap ${navNum === 2 ? 'text-[#543883] font-[600]' : ''}`}
-                    >
-                        الفئات
-                    </li>
-                    <li onClick={()=> router.push('/brands')}
-                        className={`cursor-pointer text-nowrap ${navNum === 3 ? 'text-[#543883] font-[600]' : ''}`}
-                    >
-                        العلامات التجارية
-                    </li>
-                    <li onClick={()=> router.push('/coupons')}
-                        className={`cursor-pointer text-nowrap ${navNum === 4 ? 'text-[#543883] font-[600]' : ''}`}
-                    >
-                        الكوبونات
-                    </li>
-                    <li onClick={()=> router.push('/deals')}
-                        className={`cursor-pointer text-nowrap ${navNum === 5 ? 'text-[#543883] font-[600]' : ''}`}
-                    >
-                        الـصفقات
-                    </li>
-                    <li onClick={()=> router.push('/mobile-app')}
-                        className={`cursor-pointer text-nowrap ${navNum === 6 ? 'text-[#543883] font-[600]' : ''}`}
-                    >
-                        تطبيق الجوال
-                    </li>
-                    <li onClick={()=> router.push('/contact')}
-                        className={`cursor-pointer text-nowrap ${navNum === 7 ? 'text-[#543883] font-[600]' : ''}`}
-                    >
-                        تواصل معنا
-                    </li>
+                    {
+                        navItems.map((item, index) => (
+                            <li key={index} onClick={() => router.push(item.href)}
+                                className={`cursor-pointer text-nowrap flex flex-col items-center ${navNum === index + 1 ? 'text-[#543883] font-[600]' : ''}`}
+                            >
+                                <p>{item.label}</p>
+                                <div className={`navbarUlLine bg-[#FFA360] w-[7px] h-[7px] rounded-full ${navNum === index + 1 ? 'block' : 'hidden'}`}></div>
+                            </li>
+                        ))
+                    }
+                    
                 </ul>
-                <div
-                    id='navbarUlLine'
-                    className={`bg-[#FFA360] w-[7px] h-[7px] rounded-full absolute bottom-[3px] ${
-                        navNum === 1
-                            ? 'lg:right-[10vw] md:right-[105px] hidden md:flex'
-                            : navNum === 2
-                            ? 'lg:right-[230px] md:right-[165px] hidden md:flex'
-                            : navNum === 3
-                            ? 'lg:right-[355px] md:right-[255px] hidden md:flex'
-                            : navNum === 4
-                            ? 'lg:right-[490px] md:right-[360px] hidden md:flex'
-                            : navNum === 5
-                            ? 'lg:right-[600px] md:right-[440px] hidden md:flex'
-                            : navNum === 6
-                            ? 'lg:right-[725px] md:right-[530px] hidden md:flex'
-                            : navNum === 7
-                            ? 'lg:right-[855px] md:right-[630px] hidden md:flex'
-                            : 'hidden'
-                    }`}
-                ></div>
+                
             </div>
             <div className='flex gap-5'>
                 <button className='flex w-[72px] items-center justify-evenly h-[40px] border-[1px] border-[#FFA360] rounded-[6px]'>

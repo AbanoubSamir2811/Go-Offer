@@ -41,7 +41,7 @@ body {
   #navbarUl{
     display: none;
   }
-  #navbarUlLine{
+  .navbarUlLine{
     display: none;
   }
   #navbarButton{

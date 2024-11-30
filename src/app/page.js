@@ -17,7 +17,7 @@ export default function Home() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function fetchData() {
       try {
         const response = await axios.get('https://dashboard.gooffer.net/api/home', {
           headers: {
