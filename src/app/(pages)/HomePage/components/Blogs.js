@@ -33,38 +33,18 @@ function Blogs() {
         {/* Custom Navigation */}
         <div className="custom-navigation flex mb-2 h-[34px] items-center">
           <button ref={prevRef} className="custom-prev w-fit mx-3">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g filter="url(#filter0_b_5503_36065)">
-                <rect x="0.470703" y="0.470703" width="39.5294" height="39.5294" rx="19.7647" fill="white" fillOpacity="0.9"/>
-                <rect x="0.823644" y="0.823644" width="38.8235" height="38.8235" rx="19.4118" stroke="#EAECF0" strokeWidth="0.705882"/>
-                <path d="M25.1765 20.2351H15.2942M15.2942 20.2351L20.2354 25.1763M15.2942 20.2351L20.2354 15.2939" stroke="#293B51" strokeWidth="1.41176" strokeLinecap="round" strokeLinejoin="round"/>
-                </g>
-                <defs>
-                <filter id="filter0_b_5503_36065" x="-7.5293" y="-7.5293" width="55.5293" height="55.5293" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feGaussianBlur in="BackgroundImageFix" stdDeviation="4"/>
-                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_5503_36065"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_5503_36065" result="shape"/>
-                </filter>
-                </defs>
+          <div className="w-[40px] h-[40px] flex items-center justify-center rounded-full bg-white shadow-sm shadow-[#00000014]">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.1765 9.23512H4.29419M4.29419 9.23512L9.23537 14.1763M4.29419 9.23512L9.23537 4.29395" stroke="#293B51" stroke-width="1.41176" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
+          </div>
           </button>
           <button ref={nextRef} className="custom-next w-fit h-fit">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g filter="url(#filter0_b_5503_36064)">
-                <rect y="0.470703" width="39.5294" height="39.5294" rx="19.7647" fill="white" fillOpacity="0.9"/>
-                <rect x="0.352941" y="0.823644" width="38.8235" height="38.8235" rx="19.4118" stroke="#EAECF0" strokeWidth="0.705882"/>
-                <path d="M14.8235 20.2351H24.7058M24.7058 20.2351L19.7647 15.2939M24.7058 20.2351L19.7647 25.1763" stroke="#293B51" strokeWidth="1.41176" strokeLinecap="round" strokeLinejoin="round"/>
-                </g>
-                <defs>
-                <filter id="filter0_b_5503_36064" x="-8" y="-7.5293" width="55.5293" height="55.5293" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                <feGaussianBlur in="BackgroundImageFix" stdDeviation="4"/>
-                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_5503_36064"/>
-                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_5503_36064" result="shape"/>
-                </filter>
-                </defs>
-            </svg>
+            <div className="w-[40px] h-[40px] flex items-center justify-center rounded-full bg-white shadow-sm shadow-[#00000014]">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.82349 9.23512H13.7058M13.7058 9.23512L8.76466 4.29395M13.7058 9.23512L8.76466 14.1763" stroke="#293B51" stroke-width="1.41176" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
           </button>
         </div>
       </div>
