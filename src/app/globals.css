@@ -23,11 +23,13 @@ body {
 }
 *{
   box-sizing: border-box;
+  font-display: swap
 }
 
 #brands{
   background-image: url("/Rectangle 4269.png");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #scroller::-webkit-scrollbar {
@@ -36,6 +38,8 @@ body {
 
 #customOffers{
   background-image: url("/image 12.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (max-width: 936px) {
