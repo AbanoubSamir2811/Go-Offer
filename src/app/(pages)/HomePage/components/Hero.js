@@ -1,17 +1,18 @@
+"use client";
 import Image from 'next/image'
 import React from 'react'
 
 function Hero() {
   return (
     <div className='relative'>
-        <Image src='/Group 33974.png' alt='Group 33974.png' width={1264} height={494}></Image>
-        <Image className='absolute top-28 left-[35vw]' src='/Jarir_Bookstore_Logo 1.png' alt='Group 33974.png' width={187} height={44}></Image>
-        <Image src='/Vector 142.png' alt='Vector 142.png' className='absolute top-0 left-0' width={92.5} height={85.5}/>
+        <Image loading="lazy" src='/Group 33974.png' alt='Group 33974.png' width={1264} height={494}></Image>
+        <Image loading="lazy" className='absolute top-28 left-[35vw]' src='/Jarir_Bookstore_Logo 1.png' alt='Group 33974.png' width={187} height={44}></Image>
+        <Image loading="lazy" src='/Vector 142.png' alt='Vector 142.png' className='absolute top-0 left-0' width={92.5} height={85.5}/>
         <p className='-rotate-45 absolute top-5 left-3 text-[14px] font-[700]'>خصم 35%</p>
-        <Image src='/3333 1.png' alt='3333 1.png' width={204} height={213} className='top-20 absolute left-28 w-auto h-auto'/>
-        <Image src='/whatch.png' alt='whatch.png' width={140} height={160} className='absolute top-28 right-48 w-auto h-auto'/>
-        <Image src='/headPhone.png' alt='headPhone.png' width={175} height={155} className='absolute bottom-[-70px] right-0 w-auto h-auto'/>
-        <Image src='/playstation.png' alt='playstation.png' width={220} height={170} className='absolute bottom-[-70px] left-7 z-10 w-auto h-auto'/>
+        <Image loading="lazy" src='/3333 1.png' alt='3333 1.png' width={204} height={213} className='top-20 absolute left-28 w-auto h-auto'/>
+        <Image loading="lazy" src='/whatch.png' alt='whatch.png' width={140} height={160} className='absolute top-28 right-48 w-auto h-auto'/>
+        <Image loading="lazy" src='/headPhone.png' alt='headPhone.png' width={175} height={155} className='absolute bottom-[-70px] right-0 w-auto h-auto'/>
+        <Image loading="lazy" src='/playstation.png' alt='playstation.png' width={220} height={170} className='absolute bottom-[-70px] left-7 z-10 w-auto h-auto'/>
         
         <form className="max-w-md mx-auto absolute bottom-[-30px] right-52">   
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>

@@ -34,7 +34,7 @@ export default function Home() {
     fetchData();
     console.log(data)
 
-  }, []);
+  }, );
   return (
     <div className='flex flex-col items-center mt-1 pt-5'>
       {data ? (
@@ -44,15 +44,15 @@ export default function Home() {
         <CopounsList data={data[1].data}></CopounsList>
         <Brands  data={data[0].data}></Brands>
         <About></About>
-        <AllCopouns></AllCopouns>
-        <CustomOffers></CustomOffers>
-        <NewOffers></NewOffers>
+        {/* <AllCopouns></AllCopouns> */}
+        {/* <CustomOffers></CustomOffers> */}
+        {/* <NewOffers></NewOffers> */}
         <Evaluation></Evaluation>
         <Blogs></Blogs>
-        <Image src="/Group 340222.png" alt='Group 340222.png' width={1265} height={475}/>
+        <Image loading="lazy" src="/Group 340222.png" alt='Group 340222.png' width={1265} height={475}/>
         </> 
       ) : (
-        <Image className="animate-ping my-5" src='/logo.png' alt='logo.png' width={100} height={100}/>
+        <Image loading="lazy" className="animate-ping my-5" src='/logo.png' alt='logo.png' width={100} height={100}/>
       )}
     </div>
   );

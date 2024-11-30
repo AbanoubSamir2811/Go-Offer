@@ -13,7 +13,6 @@ function BrandCard({store}) {
             width={293}
             height={61}
         />
-        <div className='hidden'></div>
         <p className='text-[24px] font-[600] text-[#543883]'>{store.name}</p>
     </div>
   )

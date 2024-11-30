@@ -1,10 +1,11 @@
+"use client";
 import Image from 'next/image'
 import React from 'react'
 
 function About() {
   return (
     <div className='py-24  w-[90vw] flex flex-col items-center'>
-        <Image className='w-auto h-auto' src='/Screenshot_2023-122-21_101600-removebg-preview 5.png' alt='Screenshot_2023-122-21_101600-removebg-preview 5.png' width={31} height={34}/>
+        <Image loading="lazy" className='w-auto h-auto' src='/Screenshot_2023-122-21_101600-removebg-preview 5.png' alt='Screenshot_2023-122-21_101600-removebg-preview 5.png' width={31} height={34}/>
         <p className='font-[800] text-[32px] text-[#262254]'>ما هى منصة جو اوفر</p>
 
         <div className='flex mt-4'>
@@ -35,7 +36,7 @@ function About() {
 
                 <button className='bg-[#543883] text-white w-[152px] h-[40px] rounded-[6px] my-10'>الدخول/إنشاء حساب</button>
             </div>
-            <Image className='max-w-[619px] max-h-[580px]' src="/Group 34019.png" alt='Group 34019.png' width={619} height={580}/>
+            <Image loading="lazy" className='max-w-[619px] max-h-[580px]' src="/Group 34019.png" alt='Group 34019.png' width={619} height={580}/>
         </div>
 
     </div>

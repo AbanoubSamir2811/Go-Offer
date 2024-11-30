@@ -1,4 +1,4 @@
-import { platform } from "os";
+"use server";
 import { z } from "zod";
 
 export const registerSchema = z.object({
@@ -13,7 +13,7 @@ export const registerSchema = z.object({
     platform: z.string(),
     // referral_code: z.string().optional(),
     lang: z.string(),
-}).refine((data) => data.password === data.password_confirmation, {
+}).refine(async (data) => data.password === data.password_confirmation, {
     message: "Passwords must match",
     path: ["password_confirmation"],
 });

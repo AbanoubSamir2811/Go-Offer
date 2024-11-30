@@ -1,6 +1,6 @@
+"use server";
 import axios from "axios";
 import { loginSchema } from "../schemas/loginSchema"; // Adjust path as needed
-import { date } from "zod";
 import { registerSchema } from "../schemas/registerSchema";
 
 export const registerService = async (email, password, password_confirmation, name, phone, gender, country_code, lang, brand_ids, country_id, platform) => {

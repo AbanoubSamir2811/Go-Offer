@@ -216,7 +216,7 @@ function Register() {
         </div>
 
         <div className='bg-[#543883] w-[725px] h-[854px] rounded-[44px]'>
-            <Image className='rounded-[44px] w-full h-full' src='/Rectangle 4299.png' alt='Rectangle 4299.png' width={500} height={500}></Image>
+            <Image loading="lazy" className='rounded-[44px] w-full h-full' src='/Rectangle 4299.png' alt='Rectangle 4299.png' width={500} height={500}></Image>
         </div>
     </div>
   )
