@@ -13,16 +13,9 @@ const ShopingList = ({data}) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const slides = [
-    { id: 1, title: "الجوالات والمستلزمات", img: "/Google-Products-PNG 1.png" },
-    { id: 2, title: "المنزل الذكى", img: "/product2.png" },
-    { id: 3, title: "البقالة", img: "/Almarai-Brand-Product-Group95202241902PM 1.png" },
-    { id: 4, title: "الملابس", img: "/mens_imperial_fern_saudi_thobe_jubba_for_men_thawb_dishdasha_caftan3_e3064586-8be5-410e-991e-1d91ec2249e9 2.png" },
-    { id: 5, title: "الجوالات والمستلزمات", img: "/Google-Products-PNG 1.png" },
-    { id: 6, title: "المنزل الذكى", img: "/product2.png" },
-    { id: 7, title: "البقالة", img: "/Almarai-Brand-Product-Group95202241902PM 1.png" },
-    { id: 8, title: "الملابس", img: "/mens_imperial_fern_saudi_thobe_jubba_for_men_thawb_dishdasha_caftan3_e3064586-8be5-410e-991e-1d91ec2249e9 2.png" },
-  ];
+  if (!Array.isArray(data)) {
+    return <div>Error: Items should be an array</div>;
+  }
 
   return (
     <div className="w-full h-[290px] flex flex-col items-center justify-center mt-24 mx-3">

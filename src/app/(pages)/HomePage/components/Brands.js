@@ -3,48 +3,9 @@ import BrandCard from '../../../shared/components/BrandCard';
 import React from 'react'
 
 function Brands({data}) {
-    const stores = [
-        {
-          id: 0,
-          name: "نــعنــاع",
-          imgUrl: "/Group.png", 
-        },
-        {
-          id: 1,
-          name: "الــمراعـــي",
-          imgUrl: "/almarai 1.png", 
-        },
-        {
-          id: 2,
-          name: "تــمور واكــثـر",
-          imgUrl: "/371906 1.png", 
-        },
-        {
-          id: 3,
-          name: "أكلات جــدودنــا",
-          imgUrl: "/Group 34006.png", 
-        },
-        {
-          id: 4,
-          name: "نــعنــاع",
-          imgUrl: "/Group.png", 
-        },
-        {
-          id: 5,
-          name: "الــمراعـــي",
-          imgUrl: "/almarai 1.png", 
-        },
-        {
-          id: 6,
-          name: "تــمور واكــثـر",
-          imgUrl: "/371906 1.png",  
-        },
-        {
-          id: 7,
-          name: "أكلات جــدودنــا",
-          imgUrl: "/Group 34006.png", 
-        },
-      ];
+  if (!Array.isArray(data)) {
+    return <div>Error: Items should be an array</div>;
+  }
   return (
     <div className='w-[100vw] flex flex-col items-center py-8' id='brands'>
         <p className='font-[800] text-[32px] text-[#262254]'>تصفح حسب العلامات التجارية</p>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Mousewheel } from "swiper/modules";
 
@@ -11,6 +11,16 @@ import "swiper/css/mousewheel";
 import CopounsCard from "../../../shared/components/copounsCard";
 
 const CopounsList = ({ data }) => {
+  if (!Array.isArray(data)) {
+    return <div>Error: Items should be an array</div>;
+  }
+  const memoizedData = useMemo(() => {
+    return data.map((slide) => (
+      <SwiperSlide key={slide.id} className="w-fit h-full flex-shrink-0 mt-8 gap-3">
+        <CopounsCard slide={slide} />
+      </SwiperSlide>
+    ));
+  }, [data]);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -66,14 +76,7 @@ const CopounsList = ({ data }) => {
         }}
         className="flex w-[90vw] h-[296px]"
       >
-        {data.map((slide) => (
-          <SwiperSlide
-            key={slide.id}
-            className="w-fit h-full flex-shrink-0 mt-8 gap-3" // Ensure slides don't shrink
-          >
-            <CopounsCard slide={slide}></CopounsCard>
-          </SwiperSlide>
-        ))}
+        {memoizedData}
       </Swiper>
     </div>
   );
