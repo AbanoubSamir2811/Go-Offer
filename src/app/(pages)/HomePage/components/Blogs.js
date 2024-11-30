@@ -2,14 +2,13 @@
 
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation , Virtual} from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
-
+import "swiper/css/virtual";
 import Image from "next/image";
 function Blogs() {
-
     const prevRef = useRef(null);
     const nextRef = useRef(null);
   
@@ -35,14 +34,14 @@ function Blogs() {
           <button ref={prevRef} className="custom-prev w-fit mx-3">
           <div className="w-[40px] h-[40px] flex items-center justify-center rounded-full bg-white shadow-sm shadow-[#00000014]">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14.1765 9.23512H4.29419M4.29419 9.23512L9.23537 14.1763M4.29419 9.23512L9.23537 4.29395" stroke="#293B51" stroke-width="1.41176" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.1765 9.23512H4.29419M4.29419 9.23512L9.23537 14.1763M4.29419 9.23512L9.23537 4.29395" stroke="#293B51" strokeWidth="1.41176" strokeLinejoin="round" />
             </svg>
           </div>
           </button>
           <button ref={nextRef} className="custom-next w-fit h-fit">
             <div className="w-[40px] h-[40px] flex items-center justify-center rounded-full bg-white shadow-sm shadow-[#00000014]">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3.82349 9.23512H13.7058M13.7058 9.23512L8.76466 4.29395M13.7058 9.23512L8.76466 14.1763" stroke="#293B51" stroke-width="1.41176" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3.82349 9.23512H13.7058M13.7058 9.23512L8.76466 4.29395M13.7058 9.23512L8.76466 14.1763" stroke="#293B51" strokeWidth="1.41176" strokeLinejoin="round" />
               </svg>
             </div>
           </button>
@@ -65,7 +64,8 @@ function Blogs() {
             slidesPerView: 3,
           },
         }}
-        modules={[Navigation]}
+        modules={[Navigation, Virtual]}
+        virtual={{ enabled: true }}
         spaceBetween={10} // Space between slides
         slidesPerView="auto" // Show multiple cards
         slidesPerGroup={1} // Slide only one card at a time

@@ -2,11 +2,11 @@
 
 import React, { useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Virtual } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
-
+import "swiper/css/virtual";
 import CopounsCard from "../../../shared/components/copounsCard";
 
 const NewOffers = ({data}) => {
@@ -65,7 +65,8 @@ const NewOffers = ({data}) => {
             slidesPerView: 3,
           },
         }}
-        modules={[Navigation]}
+        modules={[Navigation, Virtual]}
+        virtual={{ enabled: true }}
         spaceBetween={10} // Space between slides
         slidesPerView="auto" // Show multiple cards
         slidesPerGroup={1} // Slide only one card at a time

@@ -2,11 +2,12 @@
 
 import React, { useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Mousewheel } from "swiper/modules";
+import { Navigation, Mousewheel, Virtual } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/mousewheel";
+import "swiper/css/virtual";
 
 import CopounsCard from "../../../shared/components/copounsCard";
 
@@ -51,8 +52,8 @@ const CopounsList = ({ data }) => {
 
       {/* Swiper */}
       <Swiper
+        // when window width is <= 640px
         breakpoints={{
-          // when window width is <= 640px
           500: {
             slidesPerView: 1,
           },
@@ -65,7 +66,8 @@ const CopounsList = ({ data }) => {
             slidesPerView: 3,
           },
         }}
-        modules={[Navigation, Mousewheel]}
+        modules={[Navigation, Mousewheel, Virtual]}
+        virtual={{ enabled: true }}
         spaceBetween={10} // Space between slides
         slidesPerView="auto" // Show multiple cards
         slidesPerGroup={1} // Slide only one card at a time

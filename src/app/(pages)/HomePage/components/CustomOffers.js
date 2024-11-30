@@ -2,23 +2,26 @@
 
 import React, { useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation , Virtual} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/virtual";
+
 import CopounsCard from "../../../shared/components/copounsCard";
 
 function CustomOffers({data}) {
+    
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const memoizedData = useMemo(() => {
         if (data === undefined) {
-          return <div>Loading...</div>;
+            return <div>Loading...</div>;
         } else {
-          return data.map((slide) => (
-            <SwiperSlide
+            return data.map((slide) => (
+                <SwiperSlide
                 key={slide.id}
                 className="w-fit h-full flex-shrink-0 mt-8 gap-3" // Ensure slides don't shrink
-            >
+                >
                 <CopounsCard slide={slide}></CopounsCard>
             </SwiperSlide>
             ));
@@ -57,7 +60,7 @@ function CustomOffers({data}) {
             {/* Swiper */}
             <Swiper
                 breakpoints={{
-                // when window width is <= 640px
+                    // when window width is <= 640px
                 500: {
                     slidesPerView: 1,
                 },
@@ -70,14 +73,15 @@ function CustomOffers({data}) {
                     slidesPerView: 3,
                 },
                 }}
-                modules={[Navigation]}
+                modules={[Navigation, Virtual]}
                 spaceBetween={10} // Space between slides
                 slidesPerView="auto" // Show multiple cards
                 slidesPerGroup={1} // Slide only one card at a time
                 navigation={{
-                prevEl: prevRef.current,
-                nextEl: nextRef.current,
+                    prevEl: prevRef.current,
+                    nextEl: nextRef.current,
                 }}
+                virtual={{ enabled: true }}
                 onBeforeInit={(swiper) => {
                 swiper.params.navigation.prevEl = prevRef.current;
                 swiper.params.navigation.nextEl = nextRef.current;
