@@ -10,9 +10,9 @@ const Hero = dynamic(() => import("./(pages)/HomePage/components/Hero"), { ssr: 
 const ShopingList = dynamic(() => import("./(pages)/HomePage/components/shopingList"), { ssr: false });
 const Blogs = dynamic(() => import("./(pages)/HomePage/components/Blogs"), { ssr: false });
 const Evaluation = dynamic(() => import("./(pages)/HomePage/components/Evaluation"), { ssr: false });
-// const NewOffers = dynamic(() => import("./(pages)/HomePage/components/NewOffers"), { ssr: false });
-// const CustomOffers = dynamic(() => import("./(pages)/HomePage/components/CustomOffers"), { ssr: false });
-// const AllCopouns = dynamic(() => import("./(pages)/HomePage/components/AllCopouns"), { ssr: false });
+const NewOffers = dynamic(() => import("./(pages)/HomePage/components/NewOffers"), { ssr: false });
+const CustomOffers = dynamic(() => import("./(pages)/HomePage/components/CustomOffers"), { ssr: false });
+const AllCopouns = dynamic(() => import("./(pages)/HomePage/components/AllCopouns"), { ssr: false });
 const About = dynamic(() => import("./(pages)/HomePage/components/about"), { ssr: false });
 const Brands = lazy(() => import('./(pages)/HomePage/components/Brands'));
 const CopounsList = dynamic(() => import("./(pages)/HomePage/components/copounsList"), { ssr: false });
@@ -47,7 +47,9 @@ export default function Home() {
     return data ? {
       shoppingListData: data[5]?.data,
       copounsListData: data[1]?.data,
-      brandsData: data[0]?.data
+      brandsData: data[0]?.data,
+      copounsListData: data[1]?.data,
+      customOffersData: data[1]?.data
     } : {};
   }, [data]); // Only re-calculate when data changes
 
@@ -59,8 +61,9 @@ export default function Home() {
         <CopounsList data={memoizedData.copounsListData} />
         <Brands data={memoizedData.brandsData} />
         <About />
-        {/* <AllCopouns /> */}
-        {/* <CustomOffers /> */}
+        <AllCopouns data={memoizedData.copounsListData}/>
+        <CustomOffers data={memoizedData.customOffersData}/>
+        <NewOffers data={memoizedData.copounsListData}/>
         <Evaluation />
         <Blogs />
         <div className="relative w-[90vw] min-w-[400px] h-auto">
