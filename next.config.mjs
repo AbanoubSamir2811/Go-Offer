@@ -5,13 +5,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',       // Protocol of the external image URL
-        hostname: 'dashboard.gooffer.net', // Hostname of the external image
-        port: '',               // Specify a port if needed (leave empty for default ports)
-        pathname: '/storage/brands/**', // Pattern for matching image paths
+        protocol: 'https',
+        hostname: 'dashboard.gooffer.net',
+        pathname: '/storage/**', // Allow all paths under /storage/
       },
     ],
-    formats: ['image/avif', 'image/webp'], // Optimize images using modern formats
+    formats: ['image/avif', 'image/webp'], // Optional: Enable modern formats for better performance
   },
 
   webpack(config, { isServer }) {
