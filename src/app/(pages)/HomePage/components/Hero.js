@@ -5,7 +5,7 @@ import React from 'react'
 function Hero() {
   return (
     <div className='relative'>
-        <Image loading="lazy" src='/Group 33974.png' alt='Group 33974.png' width={1264} height={494}></Image>
+        <Image priority src='/Group 33974.png' alt='Group 33974.png' width={1264} height={494}></Image>
         <Image loading="lazy" className='absolute top-28 left-[35vw]' src='/Jarir_Bookstore_Logo 1.png' alt='Group 33974.png' width={187} height={44}></Image>
         <Image loading="lazy" src='/Vector 142.png' alt='Vector 142.png' className='absolute top-0 left-0' width={92.5} height={85.5}/>
         <p className='-rotate-45 absolute top-5 left-3 text-[14px] font-[700]'>خصم 35%</p>

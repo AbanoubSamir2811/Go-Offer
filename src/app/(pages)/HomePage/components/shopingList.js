@@ -90,6 +90,7 @@ const ShopingList = ({data}) => {
                 alt={slide.name}
                 width={293}
                 height={163}
+                layout="intrinsic"
               />
               <p className="text-[20px] font-[600] text-[#543883]">{slide.name}</p>
             </div>
