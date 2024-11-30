@@ -10,9 +10,9 @@ const Hero = dynamic(() => import("./(pages)/HomePage/components/Hero"), { ssr: 
 const ShopingList = dynamic(() => import("./(pages)/HomePage/components/shopingList"), { ssr: false });
 const Blogs = dynamic(() => import("./(pages)/HomePage/components/Blogs"), { ssr: false });
 const Evaluation = dynamic(() => import("./(pages)/HomePage/components/Evaluation"), { ssr: false });
-const NewOffers = dynamic(() => import("./(pages)/HomePage/components/NewOffers"), { ssr: false });
-const CustomOffers = dynamic(() => import("./(pages)/HomePage/components/CustomOffers"), { ssr: false });
-const AllCopouns = dynamic(() => import("./(pages)/HomePage/components/AllCopouns"), { ssr: false });
+// const NewOffers = dynamic(() => import("./(pages)/HomePage/components/NewOffers"), { ssr: false });
+// const CustomOffers = dynamic(() => import("./(pages)/HomePage/components/CustomOffers"), { ssr: false });
+// const AllCopouns = dynamic(() => import("./(pages)/HomePage/components/AllCopouns"), { ssr: false });
 const About = dynamic(() => import("./(pages)/HomePage/components/about"), { ssr: false });
 const Brands = lazy(() => import('./(pages)/HomePage/components/Brands'));
 const CopounsList = dynamic(() => import("./(pages)/HomePage/components/copounsList"), { ssr: false });
