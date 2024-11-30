@@ -27,7 +27,7 @@ function Blogs() {
     <div className='my-24'>
         <p className="font-[800] text-[32px] text-[#172A41]">مقالاتنا الأخيرة</p>
 
-        <div className="flex justify-between h-[34px] w-[90vw] min-w-[400px] items-center">
+        <div className="flex justify-between h-[34px] w-[90vw] min-w-[300] items-center">
         <p className="text-[#4E657F]">   ابق على اطلاع بأحدث أفكارنا   </p>
         {/* Custom Navigation */}
         <div className="custom-navigation flex mb-2 h-[34px] items-center">
@@ -52,7 +52,7 @@ function Blogs() {
       <Swiper
         breakpoints={{
           // when window width is <= 640px
-          500: {
+          300: {
             slidesPerView: 1,
           },
           // when window width is <= 768px
@@ -77,7 +77,7 @@ function Blogs() {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
         }}
-        className="flex w-[90vw] min-w-[400px] "
+        className="flex w-[90vw] min-w-[300] "
       >
         {slides.map((slide) => (
           <SwiperSlide

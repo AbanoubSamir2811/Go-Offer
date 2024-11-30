@@ -39,7 +39,7 @@ const ShopingList = ({data}) => {
 
   return (
     <div className="w-full h-[290px] flex flex-col items-center justify-center mt-24 mx-3">
-      <div className="flex justify-between h-[34px] w-[90vw] min-w-[400px] items-center">
+      <div className="flex justify-between h-[34px] w-[90vw] min-w-[300] items-center">
         <p className="font-[800] text-[32px] text-[#262254]">تسوق حسب الفئات</p>
         {/* Custom Navigation */}
         <CustomNavigation prevRef={prevRef} nextRef={nextRef} />
@@ -49,7 +49,7 @@ const ShopingList = ({data}) => {
       <Swiper
         breakpoints={{
           // when window width is <= 640px
-          500: {
+          300: {
             slidesPerView: 1,
           },
           670: {
@@ -76,7 +76,7 @@ const ShopingList = ({data}) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
         }}
-        className="flex w-[90vw] min-w-[400px] h-[290px] justify-center"
+        className="flex w-[90vw] min-w-[300] h-[290px] justify-center"
       >
         {memoizedData}
       </Swiper>
