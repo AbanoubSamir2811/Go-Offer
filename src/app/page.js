@@ -66,10 +66,10 @@ export default function Home() {
         <NewOffers data={memoizedData.copounsListData}/>
         <Evaluation />
         <Blogs />
-        <div className="relative w-[90vw] min-w-[300] h-auto">
+        <div className="relative w-[90vw] min-w-[300px] h-auto">
           <Image 
-            priority={true} 
-            className="w-[90vw] min-w-[300] h-auto"
+            loading="lazy" 
+            className="w-[90vw] min-w-[300px] h-auto"
             src="/Group 340222.png" 
             alt="Group 340222.png" 
             width={1264}

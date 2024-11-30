@@ -30,7 +30,7 @@ function Login() {
         }
     })
   return (
-    <div className='flex h-fit w-full p-[85px] justify-between'>
+    <div className='flex h-fit w-full min-w-[300px] p-[85px] justify-between'>
         <div>
             <div className='my-4'>
                 <p className='text-[#1C262D] text-[24px] font-[700]'>تسجيل الدخول</p>
@@ -160,7 +160,7 @@ function Login() {
         </div>
 
         <div className='bg-[#543883] w-[725px] h-[854px] rounded-[44px]'>
-            <Image loading="lazy" className='rounded-[44px] w-full h-full' src='/Rectangle 4299.png' alt='Rectangle 4299.png' width={500} height={500}></Image>
+            <Image loading="lazy" className='rounded-[44px] w-full min-w-[50px] h-full' src='/Rectangle 4299.png' alt='Rectangle 4299.png' width={500} height={500}></Image>
         </div>
     </div>
   )
