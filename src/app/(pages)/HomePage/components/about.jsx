@@ -17,14 +17,12 @@ function ListItem({ item }) {
 const MemoizedListItem = React.memo(ListItem);
 
 function About({ data }) {
-  // Check if data is defined, and provide a fallback if not
+  // Memoize the derived list items to prevent unnecessary recalculations, even when `data` is empty or undefined.
+  const listItems = useMemo(() => (data && data.length > 0 ? data.slice(1) : []), [data]);
+
   if (!data || data.length === 0) {
     return <div>Loading...</div>; // or any fallback UI you prefer
   }
-
-  // Memoize the derived list items to prevent unnecessary recalculations
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const listItems = useMemo(() => data.slice(1), [data]);
 
   return (
     <div className='py-24 w-[90vw] min-w-[300px] flex flex-col items-center'>

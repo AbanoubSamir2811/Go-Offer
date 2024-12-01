@@ -11,7 +11,7 @@ import CopounsCard from "../../../shared/components/copounsCard";
 
 // Memoize CopounsCard to avoid unnecessary re-renders
 const MemoizedCopounsCard = React.memo(CopounsCard);
-
+MemoizedCopounsCard.displayName = "MemoizedCopounsCard";
 const NewOffers = ({ data }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);

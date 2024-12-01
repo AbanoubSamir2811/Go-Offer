@@ -2,34 +2,27 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { loginService } from "../services/auth";
 import { useRouter } from 'next/navigation';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState(null);
     const router = useRouter();
-  
+    const dispatch = useDispatch();
+
+    const { status, error, token } = useSelector((state) => state.auth);
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      setError(null);
-  
-      try {
-        const data = loginService(email, password);
-        // Redirect to the dashboard or home page
-        router.push("/");
-      } catch (err) {
-        setError(err.message);
-      }
+      dispatch(Login({ email, password }));
     };
-
+  
     useEffect(() => {
-        if (localStorage.getItem("token")) {
-            router.push("/");
-        }
-    })
+      if (token) {
+        router.push('/');
+      }
+    }, [token, router]);
   return (
     <div className='flex h-fit w-full p-[85px] justify-between'>
         <div>
@@ -76,7 +69,7 @@ function Login() {
 
                     <div className='w-[44px] h-[44px] bg-white cursor-pointer rounded-lg shadow-md shadow-[#6c7075] flex justify-center items-center'>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_5812_99)">
+                        <g clipPath="url(#clip0_5812_99)">
                         <path d="M23.7663 12.2763C23.7663 11.4605 23.7001 10.6404 23.559 9.83789H12.2402V14.4589H18.722C18.453 15.9492 17.5888 17.2676 16.3233 18.1054V21.1037H20.1903C22.4611 19.0137 23.7663 15.9272 23.7663 12.2763Z" fill="#4285F4"/>
                         <path d="M12.2401 24.0013C15.4766 24.0013 18.2059 22.9387 20.1945 21.1044L16.3276 18.106C15.2517 18.838 13.8627 19.2525 12.2445 19.2525C9.11388 19.2525 6.45946 17.1404 5.50705 14.3008H1.5166V17.3917C3.55371 21.4439 7.7029 24.0013 12.2401 24.0013Z" fill="#34A853"/>
                         <path d="M5.50277 14.3007C5.00011 12.8103 5.00011 11.1965 5.50277 9.70618V6.61523H1.51674C-0.185266 10.006 -0.185266 14.0009 1.51674 17.3916L5.50277 14.3007Z" fill="#FBBC04"/>
@@ -100,7 +93,7 @@ function Login() {
 
                     <div className='w-[44px] h-[44px] bg-[#1877F2] cursor-pointer rounded-lg shadow-md shadow-[#6c7075] flex justify-center items-center'>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_5812_11)">
+                        <g clipPath="url(#clip0_5812_11)">
                         <path d="M24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 17.9895 4.3882 22.954 10.125 23.8542V15.4688H7.07812V12H10.125V9.35625C10.125 6.34875 11.9166 4.6875 14.6576 4.6875C15.9701 4.6875 17.3438 4.92188 17.3438 4.92188V7.875H15.8306C14.34 7.875 13.875 8.80008 13.875 9.75V12H17.2031L16.6711 15.4688H13.875V23.8542C19.6118 22.954 24 17.9895 24 12Z" fill="white"/>
                         </g>
                         <defs>

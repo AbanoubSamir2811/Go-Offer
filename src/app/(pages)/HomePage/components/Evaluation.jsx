@@ -2,17 +2,11 @@
 import Image from "next/image";
 import React, { useMemo } from "react";
 
-// Wrap the component in React.memo to prevent unnecessary re-renders
-// eslint-disable-next-line react/display-name
+// Wrap the component in React.memo and assign a displayName
 const Evaluation = React.memo(({ data }) => {
-  if (data === undefined) {
-    return <div>Loading...</div>;
-  }
-
-  // useMemo is used to optimize the rendering of the stars based on the `rate`
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  // useMemo is called unconditionally
   const stars = useMemo(() => {
-    return Array.from({ length: data[0]?.rate || 0 }).map((_, index) => (
+    return Array.from({ length: data?.[0]?.rate || 0 }).map((_, index) => (
       <svg
         key={index}
         width="36"
@@ -29,10 +23,14 @@ const Evaluation = React.memo(({ data }) => {
     ));
   }, [data]); // Only re-calculate stars if rate changes
 
+  if (data === undefined) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="w-full h-[675px] overflow-hidden relative">
       <Image
-        className="w-[900px] h-auto absolute top-[-170px] right-[-150px]"
+        className="w-[810px] h-auto absolute top-[-25%] left-[50%]"
         loading="lazy"
         src="/Ellipse 5.png"
         alt="Test.png"
@@ -40,7 +38,7 @@ const Evaluation = React.memo(({ data }) => {
         height={757}
       />
       <Image
-        className="absolute top-[109px] left-[200px]"
+        className="absolute top-[10%] left-[12%]"
         loading="lazy"
         src="/Quotes.png"
         alt="Quotes.png"
@@ -48,17 +46,17 @@ const Evaluation = React.memo(({ data }) => {
         height={118}
       />
       <Image
-        className="absolute top-[50px] right-[302px] w-auto h-[573.3px]"
+        className="absolute top-[5%] left-[35%] w-auto h-[573.3px]"
         loading="lazy"
         src="/360_F_285789662_8NyfG78pliAXwr63XZhBVRAj00N8VmcU.png"
         alt="Quotes.png"
         width={356}
         height={573.3}
       />
-      <div className="absolute top-[30px] right-[272px] w-[290px] h-[108px] bg-[#262254] rounded-[12px] p-6 text-center text-white">
+      <div className="absolute top-[5%] left-[63%] w-[290px] h-[108px] bg-[#262254] rounded-[12px] p-6 text-center text-white">
         اراء العملاء والاعضاء في كوبونات وعروض جو اوفر الحصرية
       </div>
-      <div className="absolute top-[200px] left-[287px] w-[436px] h-[336px] bg-white rounded-[12px] p-6 text-center text-black shadow-md shadow-[#15151526] flex flex-col justify-evenly items-center">
+      <div className="absolute top-[20%] left-[20%] w-[436px] h-[336px] bg-white rounded-[12px] p-6 text-center text-black shadow-md shadow-[#15151526] flex flex-col justify-around items-center">
         <h2 className="text-[40px] text-[#202020]">{data[0]?.user}</h2>
         <p className="text-[20px]">{data[0]?.comment}</p>
       </div>
@@ -83,5 +81,8 @@ const Evaluation = React.memo(({ data }) => {
     </div>
   );
 });
+
+// Assign display name to the component wrapped by React.memo
+Evaluation.displayName = "Evaluation";
 
 export default Evaluation;

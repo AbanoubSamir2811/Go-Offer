@@ -4,10 +4,12 @@ import React, { useMemo } from 'react';
 import BrandCard from '../../../shared/components/BrandCard';
 
 // Wrap the BrandCard component with React.memo to prevent unnecessary re-renders
-// eslint-disable-next-line react/display-name
 const MemoizedBrandCard = React.memo(({ store }) => {
   return <BrandCard store={store} key={store.id} />;
 });
+
+// Assign displayName to MemoizedBrandCard for better debugging
+MemoizedBrandCard.displayName = "MemoizedBrandCard";
 
 function Brands({ data }) {
   // Use useMemo to memoize the mapping of the data to BrandCard components

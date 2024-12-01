@@ -6,13 +6,13 @@ import dynamic from "next/dynamic";
 
 // Dynamically import components with SSR disabled
 const Hero = dynamic(() => import("./(pages)/HomePage/components/Hero"), { ssr: false });
-const ShopingList = dynamic(() => import("./(pages)/HomePage/components/shopingList"), { ssr: false });
-const Blogs = dynamic(() => import("./(pages)/HomePage/components/Blogs"), { ssr: false });
-const Evaluation = dynamic(() => import("./(pages)/HomePage/components/Evaluation"), { ssr: false });
-const NewOffers = dynamic(() => import("./(pages)/HomePage/components/NewOffers"), { ssr: false });
-const CustomOffers = dynamic(() => import("./(pages)/HomePage/components/CustomOffers"), { ssr: false });
-const AllCopouns = dynamic(() => import("./(pages)/HomePage/components/AllCopouns"), { ssr: false });
-const About = dynamic(() => import("./(pages)/HomePage/components/about"), { ssr: false });
+const ShopingList = lazy(() => import("./(pages)/HomePage/components/shopingList"), { ssr: false });
+const Blogs = lazy(() => import("./(pages)/HomePage/components/Blogs"), { ssr: false });
+const Evaluation = lazy(() => import("./(pages)/HomePage/components/Evaluation"), { ssr: false });
+const NewOffers = lazy(() => import("./(pages)/HomePage/components/NewOffers"), { ssr: false });
+const CustomOffers = lazy(() => import("./(pages)/HomePage/components/CustomOffers"), { ssr: false });
+const AllCopouns = lazy(() => import("./(pages)/HomePage/components/AllCopouns"), { ssr: false });
+const About = lazy(() => import("./(pages)/HomePage/components/about"), { ssr: false });
 const Brands = lazy(() => import('./(pages)/HomePage/components/Brands'));
 const CopounsList = dynamic(() => import("./(pages)/HomePage/components/copounsList"), { ssr: false });
 
