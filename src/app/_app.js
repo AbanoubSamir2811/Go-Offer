@@ -1,8 +1,8 @@
-import { appWithTranslation } from 'next-i18next';
-import '../styles/globals.css'; // Your global styles
+"use client"; // Mark this file as a client component
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+import { Provider } from "react-redux";
+import store from "./store";
+
+export default function Providers({ children }) {
+  return <Provider store={store}>{children}</Provider>;
 }
-
-export default appWithTranslation(MyApp);

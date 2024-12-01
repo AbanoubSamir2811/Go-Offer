@@ -48,6 +48,7 @@ export default function Home() {
       customOffersData: data[1]?.data,
       newOffersData: data[4]?.data,
       about: data[7]?.data,
+      testimonials: data[6]?.data
     } : {};
   }, [data]);
 
@@ -62,7 +63,7 @@ export default function Home() {
         <AllCopouns data={memoizedData.AllCopouns} />
         <CustomOffers data={memoizedData.customOffersData} />
         <NewOffers data={memoizedData.newOffersData} />
-        <Evaluation />
+        <Evaluation data={memoizedData.testimonials} />
         <Blogs />
         <div className="relative w-[90vw] min-w-[300px] h-auto">
           <Image 

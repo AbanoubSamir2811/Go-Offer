@@ -62,6 +62,6 @@ body {
     display: none;
   }
 }
-/* Image{
-  aspect-ratio: 16 / 9;
-} */
+Image{
+  aspect-ratio:auto 16 / 9;
+}
