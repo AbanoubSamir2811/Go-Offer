@@ -76,7 +76,7 @@ function Navbar() {
   }, [pathname]);
 
     return (
-        <div className={pathname === '/login' || pathname === '/register' ? 'hidden' :'w-[100vw] min-w-[300px] h-[74px] text-[#61707F] flex px-[88px] bg-[#FFFFFF] shadow-[#0000000A] shadow-md items-center justify-between z-10'}>
+        <div className={pathname === '/login' || pathname === '/register' ? 'hidden' :'w-[100vw] min-w-[300px] h-[74px] text-[#61707F] flex md:px-[88px] px-7 bg-[#FFFFFF] shadow-[#0000000A] shadow-md items-center justify-between z-10'}>
             <div className='hidden cursor-pointer' id='navbarButton'>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_5158_41050)">
@@ -94,9 +94,9 @@ function Navbar() {
                     </defs>
                 </svg>
             </div>
-            <div className='flex items-center lg:gap-16 md:gap-8 text-[16px] font-[400] '>
+            <div className='flex items-center gap-[4vw] text-[16px] font-[400] '>
                 <Image src='/logo.png' alt='logo' width={52} height={40} />
-                <ul className='md:flex hidden items-center lg:gap-[4.3vw] md:gap-8' id='navbarUl'>
+                <ul className='lg:flex hidden items-center gap-[4vw]' id='navbarUl'>
                     {
                         navItems.map((item, index) => (
                             <li key={index} onClick={() => router.push(item.href)}
@@ -111,7 +111,7 @@ function Navbar() {
                 </ul>
                 
             </div>
-            <div className='flex gap-5'>
+            <div className='flex gap-[1.5vw]'>
                 <button className='flex w-[72px] items-center justify-evenly h-[40px] border-[1px] border-[#FFA360] rounded-[6px]'>
                     <p className='text-[#FFA360] text-[14px] font-[600]'>Eng</p>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -31,14 +31,14 @@ function Footer() {
   if (pathname === '/login' || pathname === '/register') return null;
 
   return (
-    <div className="w-[90vw] min-w-[300px] min-w-[300px] justify-self-center flex flex-col items-center border-t-[#A33670] border-t-[3px] border-solid mt-24 p-12">
+    <div className="w-[90vw] min-w-[300px] justify-self-center flex flex-col items-center border-t-[#A33670] border-t-[3px] border-solid mt-24 p-12">
       <Image
         src="/logo22.png"
         alt="Logo"
         width={118}
         height={91}
       />
-      <div className="flex justify-between w-full my-7 pb-7 border-b-[3px] border-[#CED1E5] border-solid">
+      <div className="lg:flex grid grid-cols-2 gap-5 justify-between w-full my-7 pb-7 border-b-[3px] border-[#CED1E5] border-solid">
         <Section
           title="روابط سريعة"
           items={['الرئيسية', 'الكوبونات', 'الصفقات', 'تواصل معنا', 'العرض اليومي']}

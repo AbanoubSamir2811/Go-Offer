@@ -9,9 +9,13 @@ import "swiper/css/navigation";
 import "swiper/css/virtual";
 import CopounsCard from "../../../shared/components/copounsCard";
 
-const NewOffers = ({data}) => {
+// Memoize CopounsCard to avoid unnecessary re-renders
+const MemoizedCopounsCard = React.memo(CopounsCard);
+
+const NewOffers = ({ data }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+
   const memoizedData = useMemo(() => {
     if (data === undefined) {
       return <div>Loading...</div>;
@@ -19,17 +23,18 @@ const NewOffers = ({data}) => {
       return data.map((slide) => (
         <SwiperSlide
           key={slide.id}
-          className="w-fit h-full flex-shrink-0 mt-8 gap-3" // Ensure slides don't shrink
+          className="w-fit h-full flex-shrink-0 mt-8 gap-3"
         >
-          <CopounsCard slide={slide}></CopounsCard>
+          <MemoizedCopounsCard slide={slide} />
         </SwiperSlide>
       ));
     }
   }, [data]);
+
   return (
     <div className="w-full h-[350px] flex flex-col items-center justify-center my-24 mx-3">
       <div className="flex justify-between h-[34px] w-[90vw] min-w-[300px] items-center">
-        <p className="font-[800] text-[32px] text-[#262254]">   العروض الحصرية </p>
+        <p className="font-[800] text-[32px] text-[#262254]">العروض الحصرية</p>
         {/* Custom Navigation */}
         <CustomNavigation prevRef={prevRef} nextRef={nextRef} />
       </div>
@@ -37,24 +42,15 @@ const NewOffers = ({data}) => {
       {/* Swiper */}
       <Swiper
         breakpoints={{
-          // when window width is <= 640px
-          300: {
-            slidesPerView: 1,
-          },
-          // when window width is <= 768px
-          768: {
-            slidesPerView: 2,
-          },
-          // when window width is <= 1024px
-          1024: {
-            slidesPerView: 3,
-          },
+          300: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
         }}
         modules={[Navigation, Virtual]}
         virtual={{ enabled: true }}
-        spaceBetween={10} // Space between slides
-        slidesPerView="auto" // Show multiple cards
-        slidesPerGroup={1} // Slide only one card at a time
+        spaceBetween={10}
+        slidesPerView="auto"
+        slidesPerGroup={1}
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
@@ -71,4 +67,5 @@ const NewOffers = ({data}) => {
   );
 };
 
-export default NewOffers;
+// Wrap NewOffers with React.memo
+export default React.memo(NewOffers);

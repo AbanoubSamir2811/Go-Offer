@@ -2,25 +2,26 @@
 
 import React, { useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules"; // Import Autoplay module
 import CustomNavigation from "../../../shared/components/CustomNavigation";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/autoplay"; // Optional: Import Autoplay CSS if needed
 
 import Image from "next/image";
 
-const ShopingList = ({data}) => {
+const ShopingList = ({ data}) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   const memoizedData = useMemo(() => {
     if (data === undefined) {
       return <div>Loading...</div>;
-    }else if(data){  
+    } else if (data) {
       return data.map((slide) => (
         <SwiperSlide
           key={slide.id}
-          className="w-[293px] flex-shrink-0 mt-16 flex justify-center" // Ensure slides don't shrink
+          className="w-[293px] flex-shrink-0 mt-16 flex justify-center"
         >
           <div className="h-[172px] w-[293px] bg-white relative flex items-end justify-center pb-3 shadow-md shadow-[#00000014] rounded-[12px]">
             <Image
@@ -33,7 +34,7 @@ const ShopingList = ({data}) => {
             <p className="text-[20px] font-[600] text-[#543883]">{slide.name}</p>
           </div>
         </SwiperSlide>
-      ))
+      ));
     }
   }, [data]);
 
@@ -48,29 +49,22 @@ const ShopingList = ({data}) => {
       {/* Swiper */}
       <Swiper
         breakpoints={{
-          // when window width is <= 640px
-          300: {
-            slidesPerView: 1,
-          },
-          670: {
-            slidesPerView: 2,
-          },
-          // when window width is <= 768px
-          1010: {
-            slidesPerView: 3,
-          },
-          // when window width is <= 1024px
-          1280: {
-            slidesPerView: 4,
-          },
+          300: { slidesPerView: 1 },
+          670: { slidesPerView: 2 },
+          1010: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
         }}
-        modules={[Navigation]}
-        spaceBetween={10} // Space between slides
-        slidesPerView="auto" // Show multiple cards
-        slidesPerGroup={1} // Slide only one card at a time
+        modules={[Navigation, Autoplay]} // Include Autoplay module
+        spaceBetween={10}
+        slidesPerView="auto"
+        slidesPerGroup={1}
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
+        }}
+        autoplay={{
+          delay: 3000, // Delay between auto-swipes in milliseconds
+          disableOnInteraction: false, // Continue autoplay after interaction
         }}
         onBeforeInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;

@@ -30,6 +30,8 @@ body {
   background-image: url("/Rectangle 4269.png");
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100vw; /* Set fixed width */
+  min-height: 300px; /* Ensure a minimum height to prevent shifts */
 }
 
 #scroller::-webkit-scrollbar {
@@ -43,16 +45,23 @@ body {
 }
 
 @media only screen and (max-width: 936px) {
-  #navbarUl{
+
+}
+
+@media only screen and (max-width: 1125px) {
+  #navbarButton{
+    display: block;
+  }
+    #navbarUl{
     display: none;
   }
   .navbarUlLine{
     display: none;
   }
-  #navbarButton{
-    display: block;
-  }
   #loginNav{
     display: none;
   }
 }
+/* Image{
+  aspect-ratio: 16 / 9;
+} */

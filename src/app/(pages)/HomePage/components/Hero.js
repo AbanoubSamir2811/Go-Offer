@@ -4,17 +4,21 @@ import React from 'react'
 
 function Hero() {
   return (
-    <div className='relative'>
-        <Image priority={true} src='/Group 33974.png' alt='Group 33974.png' width={1264} height={475} className='w-[90vw] min-w-[300px] h-auto'></Image>
-        <Image loading="lazy" className='absolute top-28 left-[35vw]' src='/Jarir_Bookstore_Logo 1.png' alt='Group 33974.png' width={187} height={44}></Image>
-        <Image loading="lazy" src='/Vector 142.png' alt='Vector 142.png' className='absolute top-0 left-0' width={92.5} height={85.5}/>
-        <p className='-rotate-45 absolute top-5 left-3 text-[14px] font-[700]'>خصم 35%</p>
-        <Image loading="lazy" src='/3333 1.png' alt='3333 1.png' width={204} height={213} className='top-20 absolute left-28 w-auto min-w-[30px] h-auto'/>
-        <Image loading="lazy" src='/whatch.png' alt='whatch.png' width={140} height={160} className='absolute top-28 right-48 w-auto min-w-[30px] h-auto'/>
-        <Image loading="lazy" src='/headPhone.png' alt='headPhone.png' width={175} height={155} className='absolute bottom-[-70px] right-0 w-auto min-w-[30px] h-auto'/>
-        <Image loading="lazy" src='/playstation.png' alt='playstation.png' width={220} height={170} className='absolute bottom-[-70px] left-7 z-10 w-auto min-w-[30px] h-auto'/>
+    <div className='relative bg-[#C53338] rounded-[32px] flex flex-col items-center justify-center h-[494px] w-[90vw] p-0'>
+        <Image priority={true} src='/Rectangle 4261.png' alt='Group 33974.png' width={1264} height={475} className='w-full min-w-[300px] h-[494px] absolute top-0 bottom-0 right-0 left-0'></Image>
+        <Image loading="lazy" className='z-10 lg:w-[187px] lg:h-[44px] w-[131px] h-[31px]' src='/Jarir_Bookstore_Logo 1.png' alt='Group 33974.png' width={187} height={44}></Image>
+        <Image loading="lazy" src='/Vector 142.png' alt='Vector 142.png' className='absolute lg:block hidden top-0 left-0' width={92.5} height={85.5}/>
+        <p className='-rotate-45 absolute lg:block hidden top-5 left-3 text-[14px] font-[700]'>خصم 35%</p>
+        <h1 className='text-[#FFFFFF] lg:text-[65px] text-[24px] font-[700] z-10 max-w-[40vw] text-center'>عــرض كوبونـــات جــريـــر</h1>
+        <h2 className='text-[#E7E5E5] lg:text-[24px] md:text-[16px] text-[14px] font-[400] lg:max-w-[30vw] md:max-w-[40vw] text-center mx-5'>كوبونات تصل بخصـم الـي 35% علي منتجات مختــارة 
+        فــي مــتجــر مكــتبة جــريــر</h2>
+        <button className='bg-[#FFFFFF] rounded-[12px] text-[#262254] text-[20px] font-[700] w-[304px] h-[65px] mt-5 z-10 text-center'>اكــتــشـفهــا الان</button>
+        <Image loading="lazy" src='/3333 1.png' alt='3333 1.png' width={204} height={213} className='top-20 absolute left-[10%] lg:w-auto md:w-[150px] w-[100px] min-w-[30px] h-auto'/>
+        <Image loading="lazy" src='/whatch.png' alt='whatch.png' width={140} height={160} className='absolute top-28 right-[15%] lg:w-auto md:w-[150px] min-w-[30px] h-auto'/>
+        <Image loading="lazy" src='/headPhone.png' alt='headPhone.png' width={175} height={155} className='absolute bottom-[-70px] right-0 lg:w-auto min-w-[30px] h-auto'/>
+        <Image loading="lazy" src='/playstation.png' alt='playstation.png' width={220} height={170} className='absolute bottom-[-70px] left-7 z-10 lg:w-auto min-w-[30px] h-auto'/>
         
-        <form className="max-w-md mx-auto absolute bottom-[-30px] right-[15%]">   
+        <form className="max-w-md mx-auto lg:absolute hidden lg:block bottom-[-30px] right-[16%]">   
             <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div className="relative w-[60vw]">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
