@@ -3,9 +3,6 @@
 import React, { useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Virtual } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/virtual";
 import CopounsCard from "../../../shared/components/copounsCard";
 
 // Memoize CopounsCard to avoid unnecessary re-renders

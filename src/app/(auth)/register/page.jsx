@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from 'react'
-import { registerService } from '../services/auth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { registerUser } from '../../store/actions';
 
 function Register() {
     const [email, setEmail] = useState("");
@@ -26,7 +26,7 @@ function Register() {
         setError(null);
         console.log(email, password, password_confirmation, name, phone, gender, country_code)
         try {
-          const data = registerService(email, password, password_confirmation, name, phone, gender, country_code, lang, brand_ids, country_id, platform);
+          const data = registerUser(email, password, password_confirmation, name, phone, gender, country_code, lang, brand_ids, country_id, platform);
           // Redirect to the dashboard or home page
           console.log(data)
           router.push("/");

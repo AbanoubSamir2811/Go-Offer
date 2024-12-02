@@ -5,6 +5,11 @@ import Footer from "./shared/footer/footer";
 import Head from "next/head";
 import Link from "next/link";
 import Providers from "./_app";
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/mousewheel';
+import 'swiper/css/navigation';
+import "swiper/css/virtual";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

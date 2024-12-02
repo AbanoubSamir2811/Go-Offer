@@ -4,9 +4,6 @@ import React, { useMemo, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules"; // Import Autoplay module
 import CustomNavigation from "../../../shared/components/CustomNavigation";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/autoplay"; // Optional: Import Autoplay CSS if needed
 
 import Image from "next/image";
 

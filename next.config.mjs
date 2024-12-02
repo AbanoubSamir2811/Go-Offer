@@ -6,6 +6,7 @@ const nextConfig = {
       enabled: true, // Enable Turbopack
     },
   },
+  // swcMinify: false,
   images: {
     remotePatterns: [
       {
@@ -24,5 +25,6 @@ const nextConfig = {
     return config;
   },
 };
+
 
 export default nextConfig;

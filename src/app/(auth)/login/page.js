@@ -3,26 +3,32 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
-import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { loginUser } from '../../store/actions';
 
 function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const router = useRouter();
-    const dispatch = useDispatch();
+  const { register, handleSubmit, formState: { errors }, setError } = useForm();
+  const router = useRouter();
 
-    const { status, error, token } = useSelector((state) => state.auth);
+  const onSubmit = async (data) => {
+    try {
+      const { email, password } = data;
+      const result = loginUser({email, password});
+      // Redirect to the dashboard or home page
+      router.push("/");
+    } catch (err) {
+      setError("email", {
+        type: "manual",
+        message: err.message,
+      });
+    }
+  };
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      dispatch(Login({ email, password }));
-    };
-  
-    useEffect(() => {
-      if (token) {
-        router.push('/');
-      }
-    }, [token, router]);
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      router.push("/");
+    }
+  }, [router]);
   return (
     <div className='flex h-fit w-full p-[85px] justify-between'>
         <div>
@@ -31,30 +37,43 @@ function Login() {
                 <p className='text-[#5D686F] text-[14px] font-[500]'>يرجي ادخال واكمال البيانات التالية</p>
             </div>
 
-            <form className="w-[509px] mx-auto" onSubmit={handleSubmit}>
-                <div className='mb-96'>
-                    <label htmlFor="email-address-icon" className="text-[14px] font-[500] text-[#344054]">البريد الالكتروني </label>
-                    <div className="relative mb-4">
-                        <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.3337 4.99967C18.3337 4.08301 17.5837 3.33301 16.667 3.33301H3.33366C2.41699 3.33301 1.66699 4.08301 1.66699 4.99967M18.3337 4.99967V14.9997C18.3337 15.9163 17.5837 16.6663 16.667 16.6663H3.33366C2.41699 16.6663 1.66699 15.9163 1.66699 14.9997V4.99967M18.3337 4.99967L10.0003 10.833L1.66699 4.99967" stroke="#667085" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </div>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="email-address-icon" className="bg-white border border-gray-300 text-gray-900 text-sm rounded-[8px] focus:ring-blue-500 focus:border-blue-500 block w-full h-[56px] ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="اكتب البريد الالكتروني هنا..."/>
-                    </div>
+            <form className="w-[509px] mx-auto" onSubmit={handleSubmit(onSubmit)}>
+            <div className='mb-96'>
+            <label htmlFor="email-address-icon" className="text-[14px] font-[500] text-[#344054]">البريد الالكتروني </label>
+            <div className="relative mb-4">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.3337 4.99967C18.3337 4.08301 17.5837 3.33301 16.667 3.33301H3.33366C2.41699 3.33301 1.66699 4.08301 1.66699 4.99967M18.3337 4.99967V14.9997C18.3337 15.9163 17.5837 16.6663 16.667 16.6663H3.33366C2.41699 16.6663 1.66699 15.9163 1.66699 14.9997V4.99967M18.3337 4.99967L10.0003 10.833L1.66699 4.99967" stroke="#667085" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <input
+                type="email"
+                id="email-address-icon"
+                className="bg-white border border-gray-300 text-gray-900 text-sm rounded-[8px] focus:ring-blue-500 focus:border-blue-500 block w-full h-[56px] ps-10 p-2.5"
+                placeholder="اكتب البريد الالكتروني هنا..."
+                {...register("email", { required: "البريد الإلكتروني مطلوب" })}
+              />
+            </div>
+            {errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
 
-                    <label htmlFor="password" className="text-[14px] font-[500] text-[#344054] mt-4">كلمة المرور</label>
-                    <div className="relative">
-                        <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                            <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.6864 5.64844H12.2305V4.23047C12.2305 1.89778 10.3327 0 8 0C5.66731 0 3.76953 1.89778 3.76953 4.23047V5.64844H3.31363C2.52469 5.64844 1.88281 6.29031 1.88281 7.07928V14.5692C1.88281 15.3581 2.52469 16 3.31363 16H12.6864C13.4753 16 14.1172 15.3581 14.1172 14.5692V7.07928C14.1172 6.29031 13.4753 5.64844 12.6864 5.64844ZM4.70703 4.23047C4.70703 2.41472 6.18425 0.9375 8 0.9375C9.81575 0.9375 11.293 2.41472 11.293 4.23047V5.64844H10.3555V4.01044C10.3555 2.83294 9.39753 1.875 8.22003 1.875H7.77997C6.60247 1.875 5.64453 2.83294 5.64453 4.01044V5.64844H4.70703V4.23047ZM6.58203 5.64844V4.01044C6.58203 3.34991 7.11941 2.8125 7.77997 2.8125H8.22003C8.88059 2.8125 9.41797 3.34991 9.41797 4.01044V5.64844H6.58203ZM13.1797 14.5692C13.1797 14.8412 12.9584 15.0625 12.6864 15.0625H3.31363C3.04163 15.0625 2.82031 14.8412 2.82031 14.5692V7.07928C2.82031 6.80725 3.04163 6.58594 3.31363 6.58594H12.6864C12.9584 6.58594 13.1797 6.80725 13.1797 7.07928V14.5692Z" fill="#667085"/>
-                            <path d="M8 8.55371C7.22244 8.55371 6.58984 9.1863 6.58984 9.96387C6.58984 10.5771 6.98347 11.0999 7.53125 11.2936V12.7881C7.53125 13.047 7.74112 13.2568 8 13.2568C8.25888 13.2568 8.46875 13.047 8.46875 12.7881V11.2936C9.01653 11.0999 9.41016 10.5771 9.41016 9.96387C9.41016 9.1863 8.77756 8.55371 8 8.55371ZM8 10.4365C7.73937 10.4365 7.52734 10.2245 7.52734 9.96387C7.52734 9.70324 7.73937 9.49121 8 9.49121C8.26063 9.49121 8.47266 9.70324 8.47266 9.96387C8.47266 10.2245 8.26063 10.4365 8 10.4365Z" fill="#667085"/>
-                            </svg>
-                        </div>
-                        <input id='password' value={password} onChange={(e) => setPassword(e.target.value)} className="bg-white border border-gray-300 text-gray-900 text-sm rounded-[8px] focus:ring-blue-500 focus:border-blue-500 block w-full h-[56px] ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="password" placeholder='ادخل كلمة المرور'></input>
-                    </div>
-                    {error && <p style={{ color: "red" }}>{error}</p>}
-                </div>
+            <label htmlFor="password" className="text-[14px] font-[500] text-[#344054] mt-4">كلمة المرور</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.6864 5.64844H12.2305V4.23047C12.2305 1.89778 10.3327 0 8 0C5.66731 0 3.76953 1.89778 3.76953 4.23047V5.64844H3.31363C2.52469 5.64844 1.88281 6.29031 1.88281 7.07928V14.5692C1.88281 15.3581 2.52469 16 3.31363 16H12.6864C13.4753 16 14.1172 15.3581 14.1172 14.5692V7.07928C14.1172 6.29031 13.4753 5.64844 12.6864 5.64844ZM4.70703 4.23047C4.70703 2.41472 6.18425 0.9375 8 0.9375C9.81575 0.9375 11.293 2.41472 11.293 4.23047V5.64844H10.3555V4.01044C10.3555 2.83294 9.39753 1.875 8.22003 1.875H7.77997C6.60247 1.875 5.64453 2.83294 5.64453 4.01044V5.64844H4.70703V4.23047ZM6.58203 5.64844V4.01044C6.58203 3.34991 7.11941 2.8125 7.77997 2.8125H8.22003C8.88059 2.8125 9.41797 3.34991 9.41797 4.01044V5.64844H6.58203ZM13.1797 14.5692C13.1797 14.8412 12.9584 15.0625 12.6864 15.0625H3.31363C3.04163 15.0625 2.82031 14.8412 2.82031 14.5692V7.07928C2.82031 6.80725 3.04163 6.58594 3.31363 6.58594H12.6864C12.9584 6.58594 13.1797 6.80725 13.1797 7.07928V14.5692Z" fill="#667085"/>
+                </svg>
+              </div>
+              <input
+                type="password"
+                id="password"
+                className="bg-white border border-gray-300 text-gray-900 text-sm rounded-[8px] focus:ring-blue-500 focus:border-blue-500 block w-full h-[56px] ps-10 p-2.5"
+                placeholder="ادخل كلمة المرور"
+                {...register("password", { required: "كلمة المرور مطلوبة" })}
+              />
+            </div>
+            {errors.password && <p style={{ color: "red" }}>{errors.password.message}</p>}
+            {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
+          </div>
                 
                 <button type="submit" className='bg-[#543883] text-white rounded-[8px] w-full text-[20px] font-[500] h-[56px]'>تسجيل الدخول</button>
                 <p className='text-center text-[#1C262D] text-[16px] font-[400] my-3'>لديك حساب بالفعل ؟ <span className='font-[700] text-[#A33670]'><Link href='/register'>انشاء حساب</Link></span></p>
